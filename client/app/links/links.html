@@ -1,15 +1,21 @@
 <div id='container'>
+<div class="links">
   <!-- Your html here -->
   <div ng-controller= 'LinksController'>  
     <input type='text'ng-model='search' placeholder="filter">
-    <ul>
-      <li ng-repeat="link in data.links | filter: search" >
-        <h3> <a ng-href ="http://localhost:3000/api/links/{{ link.code }}"> {{ link.base_url }}/{{ link.code }}  </a><span>Visits: {{ link.visits }}</span></h3>
-      </li>
-    </ul>
-      
+      <div ng-repeat="link in data.links | filter: search | orderBy: link.visits" >
+        <img src="assets/redirect_icon.png">
+        <div class="info">
+          <div class="visits">
+            <span>{{ link.visits }}</span>Visits
+          </div>
+        </div>
+        <div class="title">{{ link.title }}</div>
+        <div class="original">{{ link.url }}</div>
+        <h3> <a ng-href ="http://localhost:3000/api/links/{{ link.code }}"> {{ link.base_url }}/{{ link.code }}  </a></h3>
+      </div> 
   </div>
 <!-- <a ng-href="{{myVar}}">{{myVar}}</a> -->
-  
+<
 </div>
 <!-- (key, value) in items">{{key}} => {{value}} -->
