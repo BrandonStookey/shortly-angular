@@ -36,6 +36,7 @@ angular.module('shortly.services', [])
       console.log('POSTERROR:', err);
     });
   };
+
   return {
     link: link,
     addLink: addLink,

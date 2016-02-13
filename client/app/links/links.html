@@ -3,13 +3,13 @@
   <div ng-controller= 'LinksController'>  
     <input type='text'ng-model='search' placeholder="filter">
     <ul>
-      <li ng-repeat="link in data.links | filter: search" ng-click="link">
-        <h3>{{ link.url }}, {{ link.visits }} </h3>
+      <li ng-repeat="link in data.links | filter: search" >
+        <h3> <a ng-href ="http://localhost:3000/api/links/{{ link.code }}"> {{ link.base_url }}/{{ link.base_url }}</a><span>Visits: {{ link.visits }}</span></h3>
       </li>
     </ul>
       
   </div>
-
+<!-- <a ng-href="{{myVar}}">{{myVar}}</a> -->
   
 </div>
 <!-- (key, value) in items">{{key}} => {{value}} -->

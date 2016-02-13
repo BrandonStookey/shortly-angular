@@ -8,20 +8,29 @@ angular.module('shortly', [
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
     .when('/signin', {
+      //Do not Add TOKEN HERE
       templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
     })
     .when('/signup', {
+      //Do not add TOKEN HERE
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
     .when('/links', {
+      //Add Authorization
       templateUrl: 'app/links/links.html',
       controller: 'LinksController'
     })
     .when('/shorten', {
+      //Add Authorization
       templateUrl: 'app/shorten/shorten.html',
       controller: 'ShortenController'
+    })
+    .when('/signout', {
+      //We added a signout in Index.html that removes token, function in Client Auth.js
+      templateUrl:  'app/auth/signin.html',
+      controller: 'AuthController'
     })
     .otherwise({
       redirectTo: '/links'
