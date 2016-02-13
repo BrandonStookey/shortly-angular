@@ -2,10 +2,9 @@ angular.module('shortly.links', [])
 
 .controller('LinksController', function ($scope, Links) {
   // Your code here
-  console.log('I am a controller function!')
+
   angular.extend($scope, Links);
   $scope.getLinks();
-  console.log($scope.getLinks);
 })
 
 .factory('Links', function($http){
@@ -16,7 +15,6 @@ angular.module('shortly.links', [])
       url:'/api/links'
     })
     .then(function(resp) {
-      console.log('RESPDATA:', resp.data);
       data.links = resp.data;
       // return resp.data;
     });
