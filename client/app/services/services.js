@@ -17,6 +17,7 @@ angular.module('shortly.services', [])
   
   var link = {};
   var addLink = function(urlInput){
+    console.log("URLINPUT ", urlInput);
     return $http({
       method: 'POST',
       url: '/api/links',
@@ -25,10 +26,14 @@ angular.module('shortly.services', [])
       }
     })
     .success(function(resp, status){
+      link = resp.data;
       console.log('RESP:', resp);
       console.log('RESPDATA:', resp.data);
       console.log('STATUS:', status);
       // cannot access statusCode
+    }).error(function(err) {
+      console.log('DATA:', data);
+      console.log('POSTERROR:', err);
     });
   };
   return {

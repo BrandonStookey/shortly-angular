@@ -3,8 +3,8 @@
   <div ng-controller= 'LinksController'>  
     <input type='text'ng-model='search' placeholder="filter">
     <ul>
-      <li ng-repeat="link in data.links | filter: search" ng-click="">
-        <h3>{{ link }}</h3>
+      <li ng-repeat="link in data.links | filter: search" ng-click="link">
+        <h3>{{ link.url }}, {{ link.visits }} </h3>
       </li>
     </ul>
       
