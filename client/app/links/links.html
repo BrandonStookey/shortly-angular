@@ -1,9 +1,15 @@
 <div id='container'>
   <!-- Your html here -->
   <div ng-controller= 'LinksController'>  
-
+    <input type='text'ng-model='search' placeholder="filter">
+    <ul>
+      <li ng-repeat="link in data.links | filter: search" ng-click="">
+        <h3>{{ link }}</h3>
+      </li>
+    </ul>
       
   </div>
 
-
+  
 </div>
+<!-- (key, value) in items">{{key}} => {{value}} -->

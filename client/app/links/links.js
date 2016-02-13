@@ -5,29 +5,15 @@ angular.module('shortly.links', [])
 
   angular.extend($scope, Links);
   $scope.getLinks();
-})
-
-.factory('Links', function($http){
-  var data = { };
-  var getLinks = function(){
-    return $http({
-      method: 'GET',
-      url:'/api/links'
-    })
-    .then(function(resp) {
-      data.links = resp.data;
-      // return resp.data;
-    });
-  };  
-  
-  return {
-    data: data,
-    getLinks: getLinks
-  };
 });
 
 
 
+
+//We need to build links template and shorten template
+
+//We need to autmoatticaly direct to sign in
+  //sign up page 
 
 //We need to build  link.js && .html
 //we ned to build out shortn.js && .html
