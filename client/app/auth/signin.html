@@ -1,6 +1,6 @@
 <div id='signin'>
   <h1>signin</h1>
-  <form name="signinForm" ng-submit='signin(signinForm.$valid)'>
+  <form name="signinForm" ng-submit='signin()'>
   
     <input type='text' name = "username" ng-model='user.username' ng-required = "true" ng-minlength = "3" ng-maxlength="8">
     <p ng-show="signinForm.username.$invalid">Your Username is Required</p>
