@@ -7,6 +7,7 @@ angular.module('shortly.auth', [])
   $scope.user = {};
 
   $scope.signin = function () {
+        console.log('sfdsfddfsdfsfds');
     Auth.signin($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.shortly', token);
@@ -29,24 +30,15 @@ angular.module('shortly.auth', [])
   };
 
   $scope.signout = function (){
-    Auth.signout($scope.user)
-      .then(function(token){
-        $window.localStorage.removeItem('com.shortly', token);
-        $location.path('/signin');
-      })
-      .catch(function(error) {
-        console.error(error);
-      });
+    console.log('sfdsfddfsdfsfds');
+    Auth.signout();
   };
-
   
-  
+  $scope.getToken = function(){
+    var token = $window.localStorage.getItem('com.shortly');
+    console.log('this is my token:', token);
+  };
 });
-
-  // var signout = function () {
-  //   $window.localStorage.removeItem('com.shortly');
-  //   $location.path('/signin');
-  // };
 
 
 

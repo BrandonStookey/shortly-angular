@@ -8,28 +8,25 @@ angular.module('shortly', [
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
     .when('/signin', {
-      //Do not Add TOKEN HERE
       templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
     })
     .when('/signup', {
-      //Do not add TOKEN HERE
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
     .when('/links', {
-      //Add Authorization
       templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+      controller: 'LinksController',
+      authenticate: true
     })
     .when('/shorten', {
-      //Add Authorization
       templateUrl: 'app/shorten/shorten.html',
-      controller: 'ShortenController'
+      controller: 'ShortenController',
+      authenticate: true
     })
     .when('/signout', {
-      //We added a signout in Index.html that removes token, function in Client Auth.js
-      templateUrl:  'app/auth/signin.html',
+      templateUrl:  'app/auth/signout.html',
       controller: 'AuthController'
     })
     .otherwise({
@@ -51,7 +48,7 @@ angular.module('shortly', [
     request: function (object) {
       var jwt = $window.localStorage.getItem('com.shortly');
       if (jwt) {
-        object.headers['x-access-token'] = jwt;
+        object.headers['x-authenticate-token'] = jwt;
       }
       object.headers['Allow-Control-Allow-Origin'] = '*';
       return object;

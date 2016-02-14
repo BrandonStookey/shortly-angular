@@ -1,7 +1,5 @@
 angular.module('shortly.services', [])
-//We are having trouble with our POST method 
-//We need to fix this!
-//We still need to validate ShortenLink form like we did for signin and signup
+
 .factory('Links', function ($http) {
   var data = { };
   var getLinks = function(){
@@ -11,7 +9,6 @@ angular.module('shortly.services', [])
     })
     .then(function(resp) {
       data.links = resp.data;
-      // return resp.data;
     });
   };  
   
@@ -30,7 +27,6 @@ angular.module('shortly.services', [])
       console.log('RESP:', resp);
       console.log('RESPDATA:', resp.data);
       console.log('STATUS:', status);
-      // cannot access statusCode
     }).error(function(err) {
       console.log('DATA:', data);
       console.log('POSTERROR:', err);
@@ -44,17 +40,7 @@ angular.module('shortly.services', [])
     getLinks: getLinks
   };
 })
-  // Your code here
-  //we need to fetch link
-  
-  //we need to validate link
-  //we need to check if we already have it
-  //we need to shorten link
-  //we need to pass link to LINK page
-  //
 
-  //should we put shorten.js and links.js all in this file?
-  //
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
   // it is responsible for authenticating our user
@@ -90,6 +76,7 @@ angular.module('shortly.services', [])
   };
 
   var signout = function () {
+    console.log('auth signout is getting called!');
     $window.localStorage.removeItem('com.shortly');
     $location.path('/signin');
   };
